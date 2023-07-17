@@ -1,67 +1,67 @@
+const numeros = [1, 2, 6, 9, 3, 0, 7, 8, 4, 5];
+
 // Crie uma função que receba um vetor de números e retorne a soma de todos os elementos.
-let vetor1 = [2, 4, 9];
-let soma = 0;
-
-function somar() {
-    for (let i = 0; i <= vetor1.length - 1; i++) {
-        soma += vetor1[i];
+// COM FOR EACH
+function somaTodosForEach(numeros) {
+    let acumulador = 0;
+    for(let n of numeros) {
+        acumulador += n
     }
-    console.log(soma);
+    return acumulador;
 }
-somar();
+console.log("A soma dos numeros do vetor é " + somaTodosForEach(numeros));
+console.log("A soma dos numeros do vetor é " + numeros.reduce((a, n) => a+n, 0));
 
-// // Crie uma função que receba um vetor de palavras e retorne a concatenação de todas as palavras em uma única string.
 
-let vetorPalavra = ["banido", "desbanido"];
-
-function juntaString() {
-    console.log(vetorPalavra.join());
+// Crie uma função que receba um vetor de palavras e retorne a concatenação de todas as palavras em uma única string.
+const linguagens = ["HTML", "CSS", "JS", "JAVA", "SQL"];
+function juncao(textos) {
+    let concatenacao = "";
+    for(let texto of textos) {
+        concatenacao += texto + ", ";
+    }
+    return concatenacao;
 }
+console.log(juncao(linguagens));
+console.log(linguagens.join(", "));
 
-juntaString();
 
-// //Crie uma função que receba um vetor de números e retorne o maior valor presente no vetor.
-let maior = 0;
-function retornaMaior() {
-    for (let i = 0; i <= vetor1.length - 1; i++) {
-        if (vetor1[i] > maior) {
-            maior = vetor1[i];
-
+// Crie uma função que receba um vetor de números e retorne o maior valor presente no vetor.
+function maiorDoVetor(numeros) {
+    let maior = numeros[0];
+    for(let n of numeros) {
+        if(n > maior) {
+            maior = n;
         }
-
     }
-    console.log(maior);
+    return maior;
 }
+console.log("O maior numero do vetor é " + maiorDoVetor(numeros));
 
-retornaMaior();
 
-//Crie uma função que receba um vetor de números e retorne a média dos elementos.
-
-function media() {
-    for (let i = 0; i <= vetor1.length - 1; i++) {
-        soma += vetor1[i];
+// Crie uma função que receba um vetor de números e retorne a média dos elementos.
+function mediaDoVetor(numeros) {
+    let total = 0;
+    let tamanho = numeros.length;
+    for(let n of numeros) {
+        total += n;
     }
-    console.log("Total soma " +  soma);
-    console.log("Tamanho vetor " + vetor1.length);
-    let divisao = soma / vetor1.length;
-    console.log("Resultado " + divisao);
+    return total/tamanho; // media
 }
-media();
+console.log("A média dos numeros do vetor é " + mediaDoVetor(numeros));
 
-//Dado um array de números, utilize o método map para retornar um novo array com cada número elevado a 2.
+// Dado um array de números, utilize o método map para retornar um novo array com cada número elevado a 2.
+console.log(numeros.map(n => n**2));
 
-console.log(vetor1.map(num => (num ** 2)));
 
-//Dado um array de palavras, utilize o método filter para retornar um novo array contendo apenas as palavras que começam com a letra 'A'.
+// Dado um array de palavras, utilize o método filter para retornar um novo array contendo apenas as palavras que começam com a letra 'A'.
+const palavras = ["Gato", "Anel", "Banana", "Computador", "Sol", "Casa", "Carro", "Arvore", "Livro", "Chocolate"];
+console.log(palavras.filter(p => (p[0] == "A")));
 
-let vetorPalavra2 = ["animal", "cachorro", "gato", "abelha", "coelho"];
 
-console.log(vetorPalavra2.filter(char => (char[0] == "a")));
+// Dado um array de números, utilize o método forEach para imprimir no console cada número multiplicado por 3.
+numeros.forEach(n => console.log(`${n} x 3 = ${n*3}`));
 
-//Dado um array de números, utilize o método forEach para imprimir no console cada número multiplicado por 3.
 
-vetor1.forEach(num => console.log(num * 3));
-
-//Dado um array de números, utilize o método includes para verificar se o número 10 está presente no array.
-
-console.log(vetor1.includes(10));
+// Dado um array de números, utilize o método includes para verificar se o número 10 está presente no array.
+console.log(numeros.includes(10));
